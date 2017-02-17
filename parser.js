@@ -1,27 +1,10 @@
-'use strict'
-
 const assert = require('assert')
 const debug = require('debug')('parser')
 const lexer = require('./lex')
 
-function expectTag(tag, lex) {
-	const t = lex.expect('TAG')
-	if (t.match != tag)
-		throw new Error(`Expected ${tag}, got ${t.match} (${pos(t)})`)
-	return t
-}
-
-function pos(t) {
-	if (t.type == '$EOF')
-		return 'EOF'
-	const {start} = t.strpos()
-	return `${start.line}:${start.column}`
-}
-
 function parse(s) {
 	debug(`parse(${s.length} chars)`)
 	const lex = lexer(s)
-	lex.expectTag = t => expectTag(t, lex)
 	const file = {}
 	file.meta = meta(lex)
 	file.chapters = chapters(lex)
@@ -52,7 +35,7 @@ function meta(lex) {
 function chapters(lex) {
 	const chaps = []
 	do {
-		let c = lex.next()
+		const c = lex.next()
 		if (c.type == '$EOF') break
 		assert(c.type == 'TAG' && c.match == '\\c', `Expected chapter, got: ${c.match}`)
 
@@ -68,7 +51,7 @@ function chapterContents(lex) {
 	debug('chapter:contents')
 	const contents = []
 	do {
-		let t = lex.peek()
+		const t = lex.peek()
 		if (t.type == 'TAG' && t.match == '\\c' || t.type == '$EOF') break
 
 		const markers = ['\\b', '\\d', '\\ms1', '\\nb', '\\p', '\\pi1', '\\q1', '\\s1', '\\sp']
@@ -91,7 +74,7 @@ function chapterContents(lex) {
 				if (lex.peek().type == 'TEXT')
 					lex.next()
 			} else
-				throw new Error(`Unexepected in chapter (${pos(t)}): ${t.match}`)
+				throw new Error(`Unexepected in chapter (${lex.pos(t)}): ${t.match}`)
 		}
 	} while (true)
 	return contents
@@ -136,11 +119,11 @@ function verse(lex) {
 					tokens.push({type: t.match.replace(/^\\/, '')})
 					lex.next()
 				} else
-					throw new Error(`Unkown tag encountered within verse: ${t.match} (${pos(t)})`)
+					throw new Error(`Unkown tag encountered within verse: ${t.match} (${lex.pos(t)})`)
 			}
 		} else {
 			tokens.push(t.match.trim())
-				lex.next()
+			lex.next()
 		}
 	} while (true)
 	return {type: 'verse', num, tokens}
@@ -161,7 +144,7 @@ function footnote(lex) {
 		else text += t.match
 	} while (true)
 
-	const fend = lex.expectTag('\\f*')
+	lex.expectTag('\\f*')
 	return {type: 'f', ref, text}
 }
 

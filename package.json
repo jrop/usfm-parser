@@ -16,5 +16,8 @@
     "loud-rejection": "^1.6.0",
     "perplex": "^0.4.1",
     "segfault-handler": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.15.0"
   }
 }

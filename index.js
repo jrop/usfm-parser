@@ -1,5 +1,4 @@
-'use strict'
-
+/* eslint-disable no-console */
 require('loud-rejection')()
 require('segfault-handler').registerHandler('crash.log')
 const co = require('co')
@@ -22,7 +21,7 @@ co(function * () {
 		console.log('Reading', file)
 		const s = yield done => fs.readFile(`${__dirname}/web/${file}`, 'utf-8', done)
 		process.stdout.write('\tparsing...')
-		const ast = parse(s)
+		const ast = parse(s) // eslint-disable-line no-unused-vars
 		console.log('done')
 	}
 })
