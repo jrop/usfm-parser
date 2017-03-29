@@ -1,2 +1,3 @@
-node_modules/
-web/
+/lib/
+/node_modules/
+/web/

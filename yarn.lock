@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@types/lodash@^4.14.59":
+  version "4.14.59"
+  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.59.tgz#bb0a556a2acf1b7cb8d99ec0657af4ab3aa0529b"
+
+"@types/node@^7.0.12":
+  version "7.0.12"
+  resolved "https://registry.npmjs.org/@types/node/-/node-7.0.12.tgz#ae5f67a19c15f752148004db07cbbb372e69efc9"
+
 acorn-jsx@^3.0.0:
   version "3.0.1"
   resolved "http://laplata.is.colostate.edu:8081/nexus/content/groups/npm-all/acorn-jsx/-/acorn-jsx-3.0.1.tgz#afdf9488fb1ecefc8348f6fb22f464e32a58b36b"
@@ -617,9 +625,9 @@ path-is-inside@^1.0.1:
   version "1.0.2"
   resolved "http://laplata.is.colostate.edu:8081/nexus/content/groups/npm-all/path-is-inside/-/path-is-inside-1.0.2.tgz#365417dede44430d1c11af61027facf074bdfc53"
 
-perplex@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.npmjs.org/perplex/-/perplex-0.4.1.tgz#e6822dcf7896c482ca99d8d7ab9cb3c9db40c76d"
+perplex@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.npmjs.org/perplex/-/perplex-0.7.1.tgz#8bb6cd83a075c6751b963274516f72a16455d5a0"
 
 pify@^2.0.0:
   version "2.3.0"
@@ -638,6 +646,10 @@ pinkie@^2.0.0:
 pluralize@^1.2.1:
   version "1.2.1"
   resolved "http://laplata.is.colostate.edu:8081/nexus/content/groups/npm-all/pluralize/-/pluralize-1.2.1.tgz#d1a21483fd22bb41e58a12fa3421823140897c45"
+
+pratt@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/pratt/-/pratt-0.1.1.tgz#4fdcbc5657d55525642f623c50c16114e1e73a2e"
 
 prelude-ls@~1.1.2:
   version "1.1.2"
@@ -798,6 +810,10 @@ through@^2.3.6:
   version "2.3.8"
   resolved "http://laplata.is.colostate.edu:8081/nexus/content/groups/npm-all/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
 
+thunk-to-promise@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/thunk-to-promise/-/thunk-to-promise-1.0.1.tgz#c9bb907e91c3ee9738692fde7965915d1b2b3e56"
+
 tryit@^1.0.1:
   version "1.0.3"
   resolved "http://laplata.is.colostate.edu:8081/nexus/content/groups/npm-all/tryit/-/tryit-1.0.3.tgz#393be730a9446fd1ead6da59a014308f36c289cb"
@@ -811,6 +827,10 @@ type-check@~0.3.2:
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "http://laplata.is.colostate.edu:8081/nexus/content/groups/npm-all/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
+
+typescript@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.npmjs.org/typescript/-/typescript-2.2.2.tgz#606022508479b55ffa368b58fee963a03dfd7b0c"
 
 user-home@^2.0.0:
   version "2.0.0"

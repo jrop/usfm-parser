@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "lib": ["es2017"],
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitAny": false,
+    "outDir": "lib/",
+    "sourceMap": true
+  },
+  "include":[
+    "src/**/*"
+  ]
+}
