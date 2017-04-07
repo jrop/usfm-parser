@@ -1,0 +1,24 @@
+{
+	// Use IntelliSense to learn about possible Node.js debug attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "index.js",
+			"program": "${workspaceRoot}/lib/index.js",
+			"outFiles": [],
+			"protocol": "inspector"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "parser.js",
+			"program": "${workspaceRoot}/lib/parser.js",
+			"outFiles": [],
+			"protocol": "inspector"
+		}
+	]
+}
