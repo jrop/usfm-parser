@@ -109,10 +109,3 @@ export class UsfmParser extends Parser {
 		value(this, lex, BP, 'xt')
 	}
 }
-
-if (require.main === module) {
-	const code = 'moo \\bk A book\\bk* goo'
-	const parser = new UsfmParser(new UsfmLexer(code))
-	const ast = parser.parse()
-	console.log(require('util').inspect(ast, null, null))
-}

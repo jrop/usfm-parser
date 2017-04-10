@@ -2,13 +2,29 @@
 
 A [USFM](http://paratext.org/about/usfm) parser for JavaScript (written in TypeScript).
 
+## Installation
+
+```sh
+npm install --save usfm
+# or
+yarn add usfm
+```
+
+## Use
+
+```js
+import {UsfmLexer, UsfmParser} from 'usfm'
+
+const parser = new UsfmParser(new UsfmLexer('...USFM string...'))
+const ast = parser.parse()
+```
+
 ## Current Status
 
 This module is still in development and may be incomplete.  The current (limiting) goal is to parse the [World English Bible (WEB)](http://ebible.org/find/show.php?id=eng-web) USFM.  Since only a subset of the total USF markers are in use in the World English Bible, this parser is incomplete (not all tags are implemented).  However, [the parser is uber-simple](https://github.com/jrop/usfm-parser/blob/master/src/parser.ts#L33), which means that if it does not support a marker that you need, you should fork this repo, add the necessary parsing logic, and submit a pull-request.
 
 TODO:
 * tests are not implemented
-* publish to NPM
 
 ## How the parser works
 

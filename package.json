@@ -1,9 +1,10 @@
 {
-  "name": "usfm-parser",
+  "name": "usfm",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "prepublish": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,14 +12,24 @@
   "license": "ISC",
   "dependencies": {
     "arrify": "^1.0.1",
-    "lodash": "^4.17.4",
     "perplex": "^0.7.1",
-    "pratt": "^0.1.3",
-    "thunk-to-promise": "^1.0.1"
+    "pratt": "^0.1.3"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.61",
     "@types/node": "^7.0.12",
+    "lodash": "^4.17.4",
+    "thunk-to-promise": "^1.0.1",
     "typescript": "^2.2.2"
-  }
+  },
+  "repository": "jrop/usfm-parser",
+  "files": [
+    "index.d.ts",
+    "lib/index.d.ts",
+    "lib/index.js",
+    "lib/lexer.d.ts",
+    "lib/lexer.js",
+    "lib/parser.d.ts",
+    "lib/parser.js"
+  ]
 }
