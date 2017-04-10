@@ -6,7 +6,7 @@ export class UsfmLexer {
 	public lexer: Lexer
 	constructor(s?: string) {
 		this.lexer = new Lexer(s)
-		this.lexer.token('TAG', /\\\+?[a-z0-9]+\*?/i)
+		this.lexer.token('TAG', /\\\+?[a-z0-9]+\*?\s*/i)
 		this.lexer.token('TEXT', /[^\\]+/)
 	}
 
@@ -26,7 +26,7 @@ export class UsfmLexer {
 
 	expect(type: string): IToken {
 		const token = this.lexer.next()
-		const surrogateType = token.type == 'TAG' ? token.match.replace(/^\\/, '') : token.type
+		const surrogateType = token.type == 'TAG' ? token.match.replace(/^\\/, '').trim() : token.type
 		if (surrogateType != type) {
 			const {start} = token.strpos()
 			throw new Error(`Expected ${type}, got ${surrogateType} (at ${start.line}:${start.column})`)

@@ -11,7 +11,7 @@ async function main() {
 			.filter(d => /^\d+-/.test(d))
 			.sortBy(s => parseInt(/^(\d+)/.exec(s)[1]))
 			.filter(s => /\.usfm$/.test(s))
-			// .filter((s: string) => s.startsWith('00'))
+			// .filter((s: string) => s.startsWith('02'))
 			.value()
 
 		for (const file of files) {

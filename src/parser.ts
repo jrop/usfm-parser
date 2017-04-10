@@ -35,7 +35,7 @@ export class UsfmParser extends Parser {
 		super(lex)
 		const builder = this.builder()
 		builder.bp('$EOF', -1)
-		builder.nud('TEXT', Number.MAX_VALUE, (t, bp) => [t.match])
+		builder.nud('TEXT', Number.MAX_VALUE, (t, bp) => [t.match.trim()])
 		builder.led('TEXT', Number.MAX_VALUE, (left, t, bp) => 
 			left.concat(t.match.trim()))
 
@@ -61,6 +61,8 @@ export class UsfmParser extends Parser {
 		single(this, BP, 'ili')
 		single(this, BP, 'ili2')
 		single(this, BP, 'li1')
+		single(this, BP, 'm')
+		single(this, BP, 'mi')
 		single(this, BP, 'nb')
 		single(this, BP, 'p')
 		single(this, BP, 'pc')
@@ -76,8 +78,6 @@ export class UsfmParser extends Parser {
 		value(this, lex, BP, 'ide')
 		value(this, lex, BP, 'ip')
 		value(this, lex, BP, 'is1')
-		value(this, lex, BP, 'm')
-		value(this, lex, BP, 'mi')
 		value(this, lex, BP, 'ms1')
 		value(this, lex, BP, 'mt1')
 		value(this, lex, BP, 'mt2')
