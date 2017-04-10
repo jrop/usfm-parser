@@ -20,6 +20,16 @@ function either(parser: Parser, bp: number, type: string, fn: LedFunction) {
 		.led(type, bp, fn)
 }
 
+function enclosed(parser: Parser, lex: UsfmLexer, bp: number, opener: string, closer: string = `${opener}*`, type: string = opener) {
+	parser.builder()
+		.bp(closer, -1)
+	either(parser, bp, opener, (left, t, bp) => {
+		const value = parser.parse(bp)
+		lex.expect(closer)
+		return arrify(left).concat({type: opener, value})
+	})
+}
+
 export class UsfmParser extends Parser {
 	constructor(lex: UsfmLexer) {
 		super(lex)
@@ -47,43 +57,56 @@ export class UsfmParser extends Parser {
 		})
 		
 		BP += 10
+		single(this, BP, 'b')
+		single(this, BP, 'ili')
+		single(this, BP, 'ili2')
+		single(this, BP, 'li1')
+		single(this, BP, 'nb')
+		single(this, BP, 'p')
+		single(this, BP, 'pc')
+		single(this, BP, 'pi1')
+		single(this, BP, 'q1')
+		single(this, BP, 'q2')
+
+		value(this, lex, BP, 'cl')
 		value(this, lex, BP, 'cp')
 		value(this, lex, BP, 'd')
 		value(this, lex, BP, 'h')
 		value(this, lex, BP, 'id')
 		value(this, lex, BP, 'ide')
 		value(this, lex, BP, 'ip')
-		value(this, lex, BP, 'toc1')
-		value(this, lex, BP, 'toc2')
-		value(this, lex, BP, 'toc3')
+		value(this, lex, BP, 'is1')
+		value(this, lex, BP, 'm')
+		value(this, lex, BP, 'mi')
+		value(this, lex, BP, 'ms1')
 		value(this, lex, BP, 'mt1')
 		value(this, lex, BP, 'mt2')
 		value(this, lex, BP, 'mt3')
-		single(this, BP, 'b')
-		single(this, BP, 'nb')
-		single(this, BP, 'p')
-		single(this, BP, 'q1')
-		single(this, BP, 'q2')
+		value(this, lex, BP, 's1')
+		value(this, lex, BP, 'sp')
+		value(this, lex, BP, 'toc1')
+		value(this, lex, BP, 'toc2')
+		value(this, lex, BP, 'toc3')
 
 		BP += 10
-		builder.bp('bk*', -1)
-		either(this, BP, 'bk', (left, t, bp) => {
-			const value = this.parse(bp)
-			lex.expect('bk*')
-			return arrify(left).concat({type: 'bk', value})
-		})
+		enclosed(this, lex, BP, 'add')
+		enclosed(this, lex, BP, 'bk')
+		enclosed(this, lex, BP, 'f')
+		enclosed(this, lex, BP, 'k')
+		enclosed(this, lex, BP, 'qs')
+		enclosed(this, lex, BP, 'wj')
+		enclosed(this, lex, BP, 'x')
 
 		BP += 10
-		builder.bp('f*', -1)
-		either(this, BP, 'f', (left, t, bp) => {
-			const value = this.parse(bp)
-			lex.expect('f*')
-			return arrify(left).concat({type: 'f', value})
-		})
+		enclosed(this, lex, BP, '+bk', '+bk*', 'bk')
 
-		BP += 10
+		value(this, lex, BP, 'fl')
+		value(this, lex, BP, 'fq')
 		value(this, lex, BP, 'fr')
 		value(this, lex, BP, 'ft')
+		value(this, lex, BP, 'fqa')
+		value(this, lex, BP, 'xo')
+		value(this, lex, BP, 'xt')
 	}
 }
 

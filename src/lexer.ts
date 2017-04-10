@@ -6,7 +6,7 @@ export class UsfmLexer {
 	public lexer: Lexer
 	constructor(s?: string) {
 		this.lexer = new Lexer(s)
-		this.lexer.token('TAG', /\\[a-z0-9]+\*?/i)
+		this.lexer.token('TAG', /\\\+?[a-z0-9]+\*?/i)
 		this.lexer.token('TEXT', /[^\\]+/)
 	}
 
