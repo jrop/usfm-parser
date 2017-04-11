@@ -14,20 +14,14 @@ function value(parser: Parser, lex: UsfmLexer, bp: number, type: string) {
 	builder.led(type, bp, (left, t, bp) => left.concat({[type]: parser.parse(bp)}))
 }
 
-function either(parser: Parser, bp: number, type: string, fn: LedFunction) {
-	parser.builder()
-		.nud(type, bp, (t, bp) => fn(undefined, t, bp))
-		.led(type, bp, fn)
-}
-
 function enclosed(parser: Parser, lex: UsfmLexer, bp: number, opener: string, closer: string = `${opener}*`, type: string = opener) {
 	parser.builder()
 		.bp(closer, -1)
-	either(parser, bp, opener, (left, t, bp) => {
-		const value = parser.parse(bp)
-		lex.expect(closer)
-		return arrify(left).concat({type: opener, value})
-	})
+		.either(opener, bp, (left, t, bp) => {
+			const value = parser.parse(bp)
+			lex.expect(closer)
+			return arrify(left).concat({type: opener, value})
+		})
 }
 
 export class UsfmParser extends Parser {

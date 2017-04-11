@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@types/lodash@^4.14.61":
-  version "4.14.61"
-  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.61.tgz#0518c10805b1f9d21f98f82b1311ac2a6ec75892"
+"@types/lodash@^4.14.62":
+  version "4.14.62"
+  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.62.tgz#8674f9861582148a60b7a89cb260f11378d11683"
 
 "@types/node@^7.0.12":
   version "7.0.12"
@@ -22,9 +22,9 @@ perplex@^0.7.1:
   version "0.7.1"
   resolved "https://registry.npmjs.org/perplex/-/perplex-0.7.1.tgz#8bb6cd83a075c6751b963274516f72a16455d5a0"
 
-pratt@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.npmjs.org/pratt/-/pratt-0.1.3.tgz#b0d0795cff42e6cb06214803e857e583d4a41ac8"
+pratt@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.npmjs.org/pratt/-/pratt-0.1.4.tgz#fb66553168ab650628a71884e4f8aec853519e25"
 
 thunk-to-promise@^1.0.1:
   version "1.0.1"
