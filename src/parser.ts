@@ -29,9 +29,9 @@ export class UsfmParser extends Parser {
 		super(lex)
 		const builder = this.builder()
 		builder.bp('$EOF', -1)
-		builder.nud('TEXT', Number.MAX_VALUE, (t, bp) => [t.match.trim()])
+		builder.nud('TEXT', Number.MAX_VALUE, (t, bp) => [t.match.replace(/(^(\r?\n)+|(\r?\n)+$)/g, '')])
 		builder.led('TEXT', Number.MAX_VALUE, (left, t, bp) => 
-			left.concat(t.match.trim()))
+			left.concat(t.match.replace(/(^(\r?\n)+|(\r?\n)+$)/g, '')))
 
 		let BP = 10
 
@@ -52,8 +52,6 @@ export class UsfmParser extends Parser {
 		
 		BP += 10
 		single(this, BP, 'b')
-		single(this, BP, 'ili')
-		single(this, BP, 'ili2')
 		single(this, BP, 'li1')
 		single(this, BP, 'm')
 		single(this, BP, 'mi')
@@ -70,6 +68,8 @@ export class UsfmParser extends Parser {
 		value(this, lex, BP, 'h')
 		value(this, lex, BP, 'id')
 		value(this, lex, BP, 'ide')
+		value(this, lex, BP, 'ili')
+		value(this, lex, BP, 'ili2')
 		value(this, lex, BP, 'ip')
 		value(this, lex, BP, 'is1')
 		value(this, lex, BP, 'ms1')
