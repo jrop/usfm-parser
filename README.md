@@ -1,5 +1,7 @@
 # usfm-parser (WIP)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jrop/usfm-parser.svg)](https://greenkeeper.io/)
+
 A [USFM](http://paratext.org/about/usfm) parser for JavaScript (written in TypeScript).
 
 ## Installation
