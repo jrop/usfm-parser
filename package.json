@@ -12,12 +12,12 @@
   "license": "ISC",
   "dependencies": {
     "arrify": "^1.0.1",
-    "perplex": "^0.7.1",
-    "pratt": "^0.1.4"
+    "perplex": "^0.10.2",
+    "pratt": "^0.5.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.62",
-    "@types/node": "^7.0.12",
+    "@types/node": "^8.0.26",
     "lodash": "^4.17.4",
     "thunk-to-promise": "^1.0.1",
     "typescript": "^2.2.2"
